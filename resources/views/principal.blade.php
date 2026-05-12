@@ -23,6 +23,16 @@
         <li><a href="#">Eliminar</a></li>
     </ul>
 
+    <h2>Menú ALUMNOS</h2>
+
+    <ul>
+        <li><a href="/alumnos/registrar">Registrar</a></li>
+        <li><a href="#">Consulta individual</a></li>
+        <li><a href="/alumnos/consulta-general">Consulta general</a></li>
+        <li><a href="#">Cambiar</a></li>
+        <li><a href="#">Eliminar</a></li>
+    </ul>
+
     <a href="/logout">Cerrar sesión</a>
 </body>
 </html>

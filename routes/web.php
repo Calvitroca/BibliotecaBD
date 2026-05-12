@@ -66,3 +66,36 @@ Route::get('/logout', function () {
     session()->flush();
     return redirect('/');
 });
+
+Route::get('/alumnos/registrar', function () {
+    if (!session('usuario')) {
+        return redirect('/');
+    }
+
+    return view('registrar-alumno');
+});
+
+Route::post('/alumnos/registrar', function (Request $request) {
+    DB::table('alumno')->insert([
+        'codigo' => $request->codigo,
+        'nombre' => $request->nombre,
+        'carrera' => $request->carrera,
+        'correo' => $request->correo,
+        'direccion' => $request->direccion,
+        'telefono' => $request->telefono,
+        'sexo' => $request->sexo,
+        'fecha_nac' => $request->fecha_nac,
+    ]);
+
+    return redirect('/alumnos/consulta-general');
+});
+
+Route::get('/alumnos/consulta-general', function () {
+    if (!session('usuario')) {
+        return redirect('/');
+    }
+
+    $alumnos = DB::table('alumno')->get();
+
+    return view('consulta-general-alumnos', compact('alumnos'));
+});
